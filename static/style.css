@@ -1,0 +1,20 @@
+body {
+    margin:auto;
+    width:70%;
+}
+.header {
+    width:80%; 
+}
+.content_container {
+}
+.footer {
+}
+
+ul > .odd {
+    background-color: #fff;
+    font-color: #000;
+}
+ul > .even {
+    background-color: #000;
+    font-color: #fff;
+}

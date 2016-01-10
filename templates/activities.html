@@ -1,0 +1,13 @@
+<html>
+<head>
+    <link ref='../static/style.css' type='text/css' />
+</head>
+<body>
+<h1> Nognogeen actviteiten</h1> 
+<ul> 
+    {% for activity in activities %}
+        <a href='{{ activity }}' class='{{ loop.cycle('odd', 'even') }}' > {{ activities[activity]['activity_name'] }} dit is een activiteit </a>
+    {% endfor %}
+</ul>
+</body>
+</html>

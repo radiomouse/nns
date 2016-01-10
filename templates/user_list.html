@@ -1,0 +1,11 @@
+<html>
+    <head> </head>
+    <body>
+        <h1> De algemene leden lijst </h1>
+        <ul> 
+        {% for user in users %} 
+            <a href='{{ user }}' > {{ users[user].firstname + ' ' + users[user].lastname }} </a> 
+        {% endfor %}
+        </ul>
+    </body>
+</html>

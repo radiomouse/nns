@@ -1,0 +1,14 @@
+<html>
+<head />
+<body>
+<h1> {{ user.firstname + ' ' + user.lastname }} </h1>
+<div class='user_container'>
+    <div class='personalia'>
+        Telefoonnummer: {{ user.phonenumber }} <br />
+        Straat: {{ user.address.street + ' ' + user.address.housenumber }} <br />
+        Postcode: {{ user.address.zipcode }} <br />
+        Woonplaats: {{ user.address.city }} <br />
+    </div>    
+</div>
+</body>
+</html>

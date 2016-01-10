@@ -1,0 +1,19 @@
+{
+"1": {
+        "activity_name": "Nognogeen Sinterklaas",
+        "location": {
+            "street": "Laan van vollenhove",
+            "housenumber": "1007",
+            "zipcode": "3706EH",
+            "city": "Zeist",
+            "country": "Netherlands"
+        },
+        "event_date": "02-01-2016",
+        "start_time": "12:00",
+        "end_time": "15:00",
+        "participants": [
+            "irenckens",
+            "jlukkien"
+        ]
+    }
+}

@@ -1,0 +1,32 @@
+{
+    "jlukkien": {
+        "firstname": "Jonathan",
+        "infix": "",
+        "lastname": "Lukkien",
+        "isActive": "true",
+        "address": {
+            "street": "Laan van vollenhove",
+            "housenumber": "1007",
+            "zipcode": "3706EH",
+            "city": "Zeist",
+            "country": "Nederland"
+        },
+        "phonenumber": "0614450554",
+        "birthday": "26-06-1987"
+    },
+    "irenckens": {
+        "firstname": "Iris",
+        "infix": "",
+        "lastname": "Renckens",
+        "isActive": "true",
+        "address": {
+            "street": "Laan van vollenhove",
+            "housenumber": "1007",
+            "zipcode": "3706EH",
+            "city": "Zeist",
+            "country": "Nederland"
+        },
+        "phonenumber": "0634407153",
+        "birthday": "25-07-1990"
+    }
+}
