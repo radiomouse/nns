@@ -2,8 +2,8 @@ import json
 from flask import Flask, render_template, request, redirect, url_for, abort, session
 
 app = Flask(__name__)
-users_file = 'addressbook.json'
-act_file = 'activities.json'
+users_file = 'data/addressbook.json'
+act_file = 'data/activities.json'
 
 @app.route('/')
 def hello_world():
@@ -16,10 +16,7 @@ def members_page():
 
 @app.route('/leden/<username>')
 def get_member_by(username):
-    jdata = load_json_by(users_file)
-    print('retrieved jdata')
-    juser = find_json_item_by(username, jdata)
-    print('found juser, off to render template')
+    juser = find_json_item_by(username, load_json_by(users_file))
     if juser is None:
         return render_template('user_not_found.html')
     print('juser not none')
@@ -34,13 +31,18 @@ def activity_page():
 
 @app.route('/activiteiten/<activity_id>')
 def get_activity_by(activity_id):
-    jactivities = load_json_by(act_file)
-    jactivity = find_json_item_by(activity_id, jactivities)
+    jactivity = find_json_item_by(activity_id, load_json_by(act_file))
     print('jactivity found')
     if jactivity is None:
         return render_template('activity_not_found.html')
     return render_template('activity.html', activity=jactivity)
 
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        juser = find_json_item_by(request.form.username, load_json_by(users_file))
+        match_pashword(juser, request.form.pashword)
+    
 def load_json_by(json_file_name):
     with open(json_file_name) as data_file:
         return json.loads(data_file.read())
