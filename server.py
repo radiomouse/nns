@@ -12,30 +12,28 @@ def hello_world():
 @app.route('/leden/')
 def members_page():
     jdata = load_json_by(users_file)
+    print('found users')
     return render_template('user_list.html', users=jdata)
 
 @app.route('/leden/<username>')
 def get_member_by(username):
+    error = None
     juser = find_json_item_by(username, load_json_by(users_file))
     if juser is None:
-        return render_template('user_not_found.html')
-    print('juser not none')
-    return render_template('user_page.html', user=juser)
+        error = 'Gebruiker kon niet gevonden worden'
+    return render_template('user_page.html', user=juser, error=error)
 
 @app.route('/activiteiten/')
 def activity_page():
-    print('entering activity page')
-    jactivities = load_json_by(act_file)
-    print('jactivity found')
-    return render_template('activities.html', activities=jactivities)
+    return render_template('activities.html', activities=load_json_by(act_file))
 
 @app.route('/activiteiten/<activity_id>')
 def get_activity_by(activity_id):
+    error = None
     jactivity = find_json_item_by(activity_id, load_json_by(act_file))
-    print('jactivity found')
     if jactivity is None:
-        return render_template('activity_not_found.html')
-    return render_template('activity.html', activity=jactivity)
+        error = 'Activiteit kon niet gevonden worden'
+    return render_template('activity.html', activity=jactivity, error=error)
 
 @app.route('/login/', methods=['GET', 'POST'])
 def login():

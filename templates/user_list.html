@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block title %} Leden {% endblock %}
+
+{% block head %} {{ super() }} {% endblock %}
+{% block content %} 
+    {% for user in users %}
+        <a href='{{ user }}' class='{{ loop.cycle('odd', 'even') }}' > {{ user }} </a>
+    {% endfor %}
+{% endblock %}
