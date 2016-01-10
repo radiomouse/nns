@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <!-- <link rel="stylesheet" href="../static/style.css" /> -->
-    <title {% block title %} title {% endblock %} - Nognogeensite /> 
+    <link rel="stylesheet" href="../static/style.css" type ='text/css' /> 
+    <title> {% block title %} {% endblock %} Nognogeensite </title> 
     {% block head %}
     {% endblock head %}
 </head>
 <body>
     <div class='header'>
-
+        <a href='/'> Thuis </a>
+        <a href='/activiteiten'> Activiteiten </a>
+        <a href='/leden'> Leden </a>
     </div>
     <div class='content_container'>
     {% block content %} 

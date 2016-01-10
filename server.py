@@ -37,11 +37,18 @@ def get_activity_by(activity_id):
         return render_template('activity_not_found.html')
     return render_template('activity.html', activity=jactivity)
 
-@app.route('/login', methods=['GET', 'POST'])
+@app.route('/login/', methods=['GET', 'POST'])
 def login():
+    error = None
     if request.method == 'POST':
         juser = find_json_item_by(request.form.username, load_json_by(users_file))
-        match_pashword(juser, request.form.pashword)
+        if match_pashword(juser, request.form.pashword):
+            return redirect('/')
+        error = 'invalid credentials'
+    return render_template('login.html', error)
+        
+def match_pashword(juser, pashword):
+    return juser['pashword'] == pashword
     
 def load_json_by(json_file_name):
     with open(json_file_name) as data_file:
