@@ -4,12 +4,8 @@
 
 {% block head %} {{ super() }} {% endblock %}
 {% block content %} 
-    {% if error is not none %} 
-        <div class='error' > {{ error }} </div>
-    {% endif %}
-    {% if user is not none %}
         <div class='personalia'> 
-            <div class='name'> {{ user['firstname'] + ' ' + user['infix'] + ' ' + user['lastname'] }} </div>
+            <div class='name'> {{ user['name'] }} </div>
             <div class='address'>
             {{ user['address']['street'] + ' ' + user['address']['housenumber'] }} <br />
                     {{ user['address']['zipcode'] + ' ' + user['address']['city'] }} <br />
@@ -17,5 +13,4 @@
             {{ user['phonenumber'] }} <br />
             {{ user['birthday'] }}
         </div>
-    {% endif %}
 {% endblock %}
